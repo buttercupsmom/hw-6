@@ -1,0 +1,34 @@
+/* Style by element */
+body {
+  font-family: "Abril Fatface", cursive;
+}
+
+/* Style by class */
+
+.card {
+  background-color: #f6e8da;
+  border-radius: 0;
+}
+
+.history-button {
+  background-color: #f6e8da;
+  color: #828057;
+  border: 4px solid #828057;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #f6e8da;
+  color: #828057;
+  border-radius: 0;
+  border: 4px solid;
+}
+
+.no-gutters {
+  background-color: #f6e8da;
+  color: #828057;
+  border: 4px solid #828057;
+  color: #828057;
+  margin-right: 0;
+  margin-left: 0;
+}

@@ -77,7 +77,7 @@ function displayFiveDayWeather(fiveDayCityData) {
       .unix(day.dt)
       .format("MMM Do YY")}</div> <div><img src="${weatherIcon}"><div>Temp: ${
       day.temp.day
-    } \xB0F <br></br> Wind: ${day.wind.speed} Mph <br></br> Humidity: ${
+    } \xB0F <br></br> Wind: ${day.wind_speed} Mph <br></br> Humidity: ${
       day.humidity
     } %</div></div></div>`;
   });
