@@ -1,7 +1,10 @@
-// Variables
-const searchHistory = [];
+// Variables save to local storage
+// const searchHistory = //get items from local storage, as a global variable at the top
 
-// Functions
+const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+// functions
+
 function handleCoords(searchCity) {
   const fetchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
 
@@ -44,12 +47,13 @@ function displayCurrentWeather(currentCityData, cityName) {
   let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
 
   // Handles light around UVI
-  let uvIndex = "low";
-  if (currentCityData.uvi > 1 && currentCityData.uvi < 5) {
-    uvIndex = "medium";
-  }
-  if (currentCityData.uvi > 5) {
-    uvIndex = "high";
+  let uvIndex;
+  if (currentCityData.uvi < 3) {
+    uvIndex = "green";
+  } else if (currentCityData.uvi < 5) {
+    uvIndex = "yellow";
+  } else if (currentCityData.uvi < 8) {
+    uvIndex = "red";
   }
   // Displays City, Temp, Icon, Wind, Humidity, and UVI
   document.querySelector(
@@ -62,7 +66,9 @@ function displayCurrentWeather(currentCityData, cityName) {
     currentCityData.wind_speed
   } Mph <br></br> Humidity: ${
     currentCityData.humidity
-  } %<br></br> UV Index: <span>${currentCityData.uvi}</span></div>`;
+  } %<br></br> UV Index: <span class=${uvIndex}>${
+    currentCityData.uvi
+  }</span></div>`;
 }
 
 function displayFiveDayWeather(fiveDayCityData) {
@@ -73,13 +79,17 @@ function displayFiveDayWeather(fiveDayCityData) {
     // Displays icon with corresponding weather
     let weatherIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
     // Displays Five Day
-    document.querySelector("#fiveDayWeather").innerHTML += `<div></div> ${moment
+    document.querySelector(
+      "#fiveDayWeather"
+    ).innerHTML += `<div class="forecastcard"><div>${moment
       .unix(day.dt)
-      .format("MMM Do YY")}</div> <div><img src="${weatherIcon}"><div>Temp: ${
+      .format(
+        "MMM Do YY"
+      )}</div> <div><img src="${weatherIcon}"></div> <div>Temp: ${
       day.temp.day
-    } \xB0F <br></br> Wind: ${day.wind_speed} Mph <br></br> Humidity: ${
+    } \xB0F</div> <div>Wind: ${day.wind_speed} Mph</div> <div>Humidity: ${
       day.humidity
-    } %</div></div></div>`;
+    } %</div></div>`;
   });
 }
 
@@ -93,6 +103,7 @@ function handleFormSubmit(event) {
   const filteredSearchHistory = searchHistory.filter((city, index) => {
     return searchHistory.indexOf(city) === index;
   });
+  localStorage.setItem("searchHistory", JSON.stringify(filteredSearchHistory));
   filteredSearchHistory.forEach((city) => {
     document.querySelector(
       "#searchHistory"

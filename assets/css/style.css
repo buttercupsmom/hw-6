@@ -8,6 +8,13 @@ body {
 .card {
   background-color: #f6e8da;
   border-radius: 0;
+  color: #828057;
+}
+
+.h4 {
+  background-color: #f6e8da;
+  color: #828057;
+  border: 4px solid #828057;
 }
 
 .history-button {
@@ -31,4 +38,27 @@ body {
   color: #828057;
   margin-right: 0;
   margin-left: 0;
+}
+
+#fiveDayWeather {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.forecastcard {
+  margin: 10px 0;
+  border: 2px solid #828057;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
 }
