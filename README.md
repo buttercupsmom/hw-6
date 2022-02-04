@@ -26,7 +26,7 @@
 
 ## Gif of Dashboard
 
-![Weather Dashboard Gif](./assets/images/Weather Dashboard.gif)
+![Weather Dashboard Gif](./assets/images/WeatherDashboard.gif)
 
 ## Author
 
@@ -34,5 +34,5 @@
 
 ## Links
 
-- Here is the Repo: [https://github.com/buttercupsmom/hw-6];
-- Here is the Page: []
+- Here is the Repo: [https://github.com/buttercupsmom/hw-6]
+- Here is the Page: [https://buttercupsmom.github.io/hw-6/]
