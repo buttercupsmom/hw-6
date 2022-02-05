@@ -6,7 +6,7 @@ const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 // functions
 
 function handleCoords(searchCity) {
-  const fetchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
+  const fetchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
 
   fetch(fetchUrl)
     .then(function (response) {
@@ -44,7 +44,7 @@ function handleCurrentWeather(coordinates, city) {
 
 function displayCurrentWeather(currentCityData, cityName) {
   // Displays Current City and Weather
-  let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
+  let weatherIcon = `https://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
 
   // Handles light around UVI
   let uvIndex;
@@ -77,7 +77,7 @@ function displayFiveDayWeather(fiveDayCityData) {
 
   cityData.forEach((day) => {
     // Displays icon with corresponding weather
-    let weatherIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+    let weatherIcon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
     // Displays Five Day
     document.querySelector(
       "#fiveDayWeather"
